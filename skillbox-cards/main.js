@@ -35,12 +35,7 @@ function renderColoda(){
 }
 
 
-const cards = renderColoda();
-
-
-
-
-
+let cards = renderColoda();
 
 
     //логика игры
@@ -55,7 +50,7 @@ const closeCard = (arrCard) =>{
             item.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
             item.querySelector('span').style.opacity = 0;
         })
-    },1000)
+    },200)
 }
 
 const resetIdCard = (arrId) =>{
@@ -70,6 +65,12 @@ arrTwoCard = [],
 arrIdCard = [];
 
 const btn = document.querySelector('.btn');
+
+btn.addEventListener('click',()=>{
+    cards = renderColoda();
+    btn.style.display = 'none';
+    arrResult = [];
+})
 
 cards.addEventListener('click',(event)=>{
     const target = event.target;
@@ -105,10 +106,10 @@ cards.addEventListener('click',(event)=>{
         arrIdCard = [];
 
     }
-    console.log(arrResult);
+    
     if (arrResult.length === 8){
         btn.style.display = 'block';
-        cards = renderColoda();
+        
     }
 
 
